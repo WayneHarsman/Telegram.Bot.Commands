@@ -16,7 +16,6 @@ namespace Telegram.Bot.Commands
         public void ReplyAsync(string message)
         {
             Context.Client.SendTextMessageAsync(Context.Message.Chat, message);
-
         }
     }
 }

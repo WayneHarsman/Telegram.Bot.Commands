@@ -2,9 +2,19 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+        <PackageVersion>1.0.0-PreAlpha</PackageVersion>
+        <Title>Telegram.Bot.Commands</Title>
+        <Authors>Wayne Harsman</Authors>
+        <PackageProjectUrl>https://github.com/WayneHarsman/Telegram.Bot.Commands</PackageProjectUrl>
+        <PackageLicenseUrl></PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/WayneHarsman/Telegram.Bot.Commands</RepositoryUrl>
+        <PackageTags>bot telegram</PackageTags>
+        <PackageId>WHTelegram.Bot.Commands</PackageId>
+        <Copyright>https://github.com/WayneHarsman/Telegram.Bot.Commands/blob/master/LICENSE</Copyright>
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
       <PackageReference Include="Telegram.Bot" Version="16.0.2" />
     </ItemGroup>
 
