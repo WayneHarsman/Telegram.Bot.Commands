@@ -2,10 +2,11 @@
 
 namespace Telegram.Bot.Commands
 {
-    public class CommandContext
+    public interface ICommandContext
     {
         public TelegramBotClient Client { get; set; }
-
-        public Message Message { get; set; }
+        
+        public string ChatId { get; set; }
+        public User From { get; set; }
     }
 }

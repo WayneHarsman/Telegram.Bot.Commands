@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <PackageVersion>1.0.0-PreAlpha</PackageVersion>
+        <PackageVersion>1.0.1-PreAlpha</PackageVersion>
         <Title>Telegram.Bot.Commands</Title>
         <Authors>Wayne Harsman</Authors>
         <PackageProjectUrl>https://github.com/WayneHarsman/Telegram.Bot.Commands</PackageProjectUrl>

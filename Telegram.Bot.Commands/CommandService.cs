@@ -12,12 +12,10 @@ namespace Telegram.Bot.Commands
     /// </summary>
     public class CommandService
     {
-        private ILogger<CommandService> _logger;
         private readonly CommandMapper _mapper;
 
-        public CommandService(ILogger<CommandService> logger = null)
+        public CommandService()
         {
-            _logger = logger;
             _mapper = new CommandMapper();
         }
 
@@ -29,16 +27,10 @@ namespace Telegram.Bot.Commands
         public void AddModulesAsync(Assembly assembly, IServiceProvider provider)
         {
             var searchResult = ModuleBuilder.Search(assembly);
-            ModuleBuilder.Build(searchResult, provider, _mapper);
+            ModuleBuilder.TryBuild(searchResult, provider, _mapper);
         }
 
-        // public void AddModule<T>() 
-        //     where T : ModuleBase
-        // {
-        //     
-        // }
-
-        public void ExecuteAsync(CommandContext context, string command)
+        public void ExecuteAsync(ICommandContext context, string command)
         {
             //TODO: check if commands is registered
             var commandMethod = _mapper.GetCommandMethod(command);
@@ -55,6 +47,8 @@ namespace Telegram.Bot.Commands
             //Some serious shitcode happening here
             //TODO: consider injecting context as a command method argument
             moduleType.GetProperty("Context").SetValue(moduleInstance, context);
+
+            //moduleType.GetMethod("SetContext").Invoke(moduleInstance, new []{context});
 
             
             //TODO: add pre-execution event and post-execution event invocation

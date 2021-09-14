@@ -21,7 +21,7 @@ namespace Telegram.Bot.Commands.Builders
 
             foreach (var type in assembly.DefinedTypes)
             {
-                if (type.IsPublic && type.IsSubclassOf(typeof(ModuleBase)))
+                if (type.IsPublic && typeof(ModuleBase).IsAssignableFrom(type))
                 {
                     results.Add(type);
                 }
@@ -31,7 +31,7 @@ namespace Telegram.Bot.Commands.Builders
             return results;
         }
 
-        internal static void Build(IEnumerable<TypeInfo> typesToBuild, IServiceProvider provider, CommandMapper mapper)
+        internal static void TryBuild(IEnumerable<TypeInfo> typesToBuild, IServiceProvider provider, CommandMapper mapper)
         {
             foreach (var type in typesToBuild)
             {
