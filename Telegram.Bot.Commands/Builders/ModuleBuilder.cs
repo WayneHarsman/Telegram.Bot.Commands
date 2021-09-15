@@ -21,7 +21,7 @@ namespace Telegram.Bot.Commands.Builders
 
             foreach (var type in assembly.DefinedTypes)
             {
-                if (type.IsPublic && typeof(ModuleBase).IsAssignableFrom(type))
+                if (type.IsPublic && type.ImplementedInterfaces.Contains(typeof(IModuleBase)))
                 {
                     results.Add(type);
                 }
